@@ -1,4 +1,5 @@
 import pygame
+import random
 from RRTbasePy import RRTGraph
 from RRTbasePy import RRTMap
 
@@ -18,7 +19,7 @@ def main():
     map.drawMap(obstacles)
 
     while(iteration<500):
-        if iteration%10 == 0:
+        if (int(random.uniform(0,100))<10):
             X,Y,Parent = graph.bias(goal)
             pygame.draw.circle(map.map,map.grey,(X[-1],Y[-1]),map.nodeRad,0)
             pygame.draw.line(map.map,map.Blue,(X[-1],Y[-1]),(X[Parent[-1]],Y[Parent[-1]]),map.edgeThickness)
@@ -28,10 +29,12 @@ def main():
             pygame.draw.circle(map.map,map.grey,(X[-1],Y[-1]),map.nodeRad,0)
             pygame.draw.line(map.map,map.Blue,(X[-1],Y[-1]),(X[Parent[-1]],Y[Parent[-1]]),map.edgeThickness)
 
-        if iteration % 5 == 0:
-            pygame.display.update()
-
+        
+        pygame.display.update()
+        pygame.event.wait(10)
         iteration=iteration+1
+        if(graph.goalFlag==True):
+            break
 
     pygame.display.update()
     pygame.event.clear()

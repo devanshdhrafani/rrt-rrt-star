@@ -14,7 +14,7 @@ class RRTMap:
         pygame.display.set_caption(self.MapWindowName)
         self.map=pygame.display.set_mode((self.Mapw,self.Maph))
         self.map.fill((255,255,255))
-        self.nodeRad=2
+        self.nodeRad=3
         self.nodeThickness=0
         self.edgeThickness=1
 
@@ -170,7 +170,7 @@ class RRTGraph:
             (xnear,ynear)=(self.x[nnear],self.y[nnear])
             (xrand,yrand)=(self.x[nrand],self.y[nrand])
             (px,py)=(xrand-xnear,yrand-ynear)
-            theta=math.atan2(px,py)
+            theta=math.atan2(py,px)
             (x,y)=(int(xnear+dmax*math.cos(theta)),
                     int(ynear+dmax*math.sin(theta))
             )
