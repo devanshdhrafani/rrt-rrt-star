@@ -19,7 +19,7 @@ def main():
     map.drawMap(obstacles)
 
     while(iteration<500):
-        if (int(random.uniform(0,100))<10):
+        if (random.uniform(0,100)<2):
             X,Y,Parent = graph.bias(goal)
             pygame.draw.circle(map.map,map.grey,(X[-1],Y[-1]),map.nodeRad,0)
             pygame.draw.line(map.map,map.Blue,(X[-1],Y[-1]),(X[Parent[-1]],Y[Parent[-1]]),map.edgeThickness)
@@ -31,7 +31,7 @@ def main():
 
         
         pygame.display.update()
-        pygame.event.wait(10)
+        pygame.event.wait(25)
         iteration=iteration+1
         if(graph.goalFlag==True):
             break
