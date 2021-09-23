@@ -3,7 +3,7 @@
 Python implementation of the RRT/RRT* algorithms using pygame. 
 
 ## Prerequisites
-- [pygame](https://www.pygame.org/wiki/GettingStarted)
+` pip install -r requirements.txt`
 
 ## Demo
 Just run `python3 RRT.py` from terminal.
